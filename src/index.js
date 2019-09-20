@@ -1,9 +1,9 @@
-const flipboard = new Flipboard({
-  parentNode: "splitflap",
-  numberOfFlipboards: 6,
+const flippity = new Flippity({
+  parentNode: "flippity",
+  numberOfFlipboards: 3,
   flipTime: "0.2s",
   moduloOrNextUp: "modulo",
-  initialString: "DANIEL",
+  initialString: "Daniel",
   synchronous: true,
   clickable: false,
   rollingOrStepThrough: "rolling",
@@ -21,8 +21,10 @@ const flipboard = new Flipboard({
   fontWeight: "bold",
   perspective: "1000px"
 });
+flippity.render();
 
 const card = document.querySelector(".card");
 card.addEventListener("click", () => {
-  card.classList.toggle("is-flipped");
+  // card.classList.toggle("is-flipped");
+  flippity.flip(1);
 });

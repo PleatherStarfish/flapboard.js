@@ -1,53 +1,83 @@
 :root {
-  --hinge-gap: 4px;
+  --flippity-hinge-gap: 4px;
+  --flippity-hinge-gap-color: white;
+  --flippity-width: 200px;
+  --flippity-height: 260px;
+  --flippity-font-size: 200pt;
+  --flippity-color: rgb(179, 179, 179);
+  --flippity-background-color: rgb(49, 44, 44);
+  --flippity-fliptime: 0.2s;
+  --flippity-font: sans-serif;
+  --flippity-font-weight: bold;
+  --flippity-margin: 40px 5px;
+  --flippity-perspective: 1000px;
 }
 
 body {
-  font-family: sans-serif;
+  font-family: var(--flippity-font);
   transform-style: preserve-3d;
+}
+.flippity-container {
+  display: inline-block;
 }
 .background {
   position: absolute;
-  width: 200px;
-  height: 260px;
-  background: black;
+  width: var(--flippity-width);
+  height: var(--flippity-height);
+  background: var(--flippity-background-color);
   text-align: center;
-  font-weight: bold;
-  background: linear-gradient(to top, transparent 50%, black 50%);
+  font-weight: var(--flippity-font-weight);
+  background: linear-gradient(
+          to top,
+          transparent 50%,
+          var(--flippity-background-color) 50%
+  );
 }
 .number__top {
-  font-size: 200pt;
-  line-height: 260px;
-  background: linear-gradient(to top, transparent 50%, yellow 50%);
+  font-size: var(--flippity-font-size);
+  line-height: var(--flippity-height);
+  background: linear-gradient(
+          to top,
+          transparent 50%,
+          var(--flippity-color) 50%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .number__top--flipped {
-  font-size: 200pt;
-  line-height: 260px;
-  background: linear-gradient(to bottom, transparent 50%, yellow 50%);
+  font-size: var(--flippity-font-size);
+  line-height: var(--flippity-height);
+  background: linear-gradient(
+          to bottom,
+          transparent 50%,
+          var(--flippity-color) 50%
+  );
   transform: rotate(-180deg);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .number__bottom {
-  font-size: 200pt;
-  line-height: 260px;
-  background: linear-gradient(to bottom, transparent 50%, yellow 50%);
+  font-size: var(--flippity-font-size);
+  line-height: var(--flippity-height);
+  background: linear-gradient(
+          to bottom,
+          transparent 50%,
+          var(--flippity-color) 50%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .scene {
-  width: 200px;
-  height: 260px;
-  margin: 40px 0;
-  perspective: 1000px;
+  width: var(--flippity-width);
+  height: var(--flippity-height);
+  margin: var(--flippity-margin);
+  perspective: var(--flippity-perspective);
 }
 
 .card {
   width: 100%;
   height: 100%;
-  transition: transform 0.2s;
+  transition: transform var(--flippity-fliptime);
   transform-style: preserve-3d;
   cursor: pointer;
   position: relative;
@@ -61,36 +91,48 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  line-height: 260px;
-  color: white;
+  line-height: var(--flippity-height);
+  color: var(--flippity-color);
   text-align: center;
   font-weight: bold;
   backface-visibility: hidden;
 }
 
 .card__face--front-top {
-  background: linear-gradient(to top, transparent 50%, black 50%);
+  background: linear-gradient(
+          to top,
+          transparent 50%,
+          var(--flippity-background-color) 50%
+  );
 }
 
 .card__face--front-bottom {
   position: absolute;
   top: 0;
   pointer-events: none;
-  background: linear-gradient(to bottom, transparent 50%, black 50%);
+  background: linear-gradient(
+          to bottom,
+          transparent 50%,
+          var(--flippity-background-color) 50%
+  );
   z-index: -1;
 }
 
 .card__face--back {
-  background: black;
+  background: var(--flippity-background-color);
   transform: rotateY(180deg);
-  background: linear-gradient(to top, transparent 50%, black 50%);
+  background: linear-gradient(
+          to top,
+          transparent 50%,
+          var(--flippity-background-color) 50%
+  );
 }
 
 .gap {
   position: absolute;
   width: 100%;
-  height: var(--hinge-gap);
-  background-color: white;
+  height: var(--flippity-hinge-gap);
+  background-color: var(--flippity-hinge-gap-color);
   pointer-events: none;
-  top: calc(50% - calc(var(--hinge-gap) / 2));
+  top: calc(50% - calc(var(--flippity-hinge-gap) / 2));
 }
