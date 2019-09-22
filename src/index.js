@@ -1,13 +1,12 @@
 const flippity = new Flippity({
   parentNode: "flippity",
   numberOfFlipboards: 3,
-  flipTime: "0.2s",
+  flipTime: "0.9",
   moduloOrNextUp: "modulo",
-  initialString: "Daniel",
   synchronous: true,
   clickable: false,
   rollingOrStepThrough: "rolling",
-  rollingDelay: "0.5s",
+  rollingDelay: "0.5",
   updateDirection: "random",
   fontSize: "200pt",
   color: "white",
@@ -21,10 +20,14 @@ const flippity = new Flippity({
   fontWeight: "bold",
   perspective: "1000px"
 });
-flippity.render();
+flippity.render("123");
 
-const card = document.querySelector(".card");
-card.addEventListener("click", () => {
-  // card.classList.toggle("is-flipped");
-  flippity.flip(1);
-});
+function run123() {
+  flippity._rollDeck("234");
+  // const card = document.querySelector(".card");
+  // card.addEventListener("click", () => {
+  //   // card.classList.toggle("is-flipped");
+  //   flippity._rollDeck("123");
+  // });
+}
+
